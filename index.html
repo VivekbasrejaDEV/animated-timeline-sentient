@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Sentient Works ⏳</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f23;
+      color: #e2e8f0;
+      padding: 2rem;
+    }
+    h1 { text-align: center; color: #6366f1; }
+    .timeline {
+      max-width: 600px;
+      margin: 2rem auto;
+      border-left: 3px solid #6366f1;
+      padding-left: 20px;
+    }
+    .step {
+      margin: 2rem 0;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.6s ease-out;
+    }
+    .step.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .step h2 { color: #ec4899; }
+  </style>
+</head>
+<body>
+  <h1>How Sentient Works ⏳</h1>
+  <div class="timeline">
+    <div class="step"><h2>🤖 Teach the Robot Brain</h2></div>
+    <div class="step"><h2>💎 Earn Tokens</h2></div>
+    <div class="step"><h2>🔒 Keep Data Safe</h2></div>
+    <div class="step"><h2>🌍 Community Governs</h2></div>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".step");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.2 });
+    steps.forEach(step => observer.observe(step));
+  </script>
+</body>
+</html>
